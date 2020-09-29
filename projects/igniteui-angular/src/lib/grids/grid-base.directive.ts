@@ -3024,7 +3024,7 @@ export abstract class IgxGridBaseDirective extends DisplayDensityBase implements
             }
 
             // do not hide the overlay if it's attached to a row
-            if (this.rowEditingOverlay.overlayId === event.id) {
+            if (this.rowEditingOverlay?.overlayId === event.id) {
                 return;
             }
 
