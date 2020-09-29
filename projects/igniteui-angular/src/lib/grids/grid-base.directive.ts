@@ -3023,12 +3023,12 @@ export abstract class IgxGridBaseDirective extends DisplayDensityBase implements
                 return;
             }
 
-            if (overlaySettings?.outlet === this.outlet && this.overlayIDs.indexOf(event.id) === -1) {
-                // do not hide the overlay if it's attached to a row for editing purposes
-                if (overlaySettings.positionStrategy instanceof RowEditPositionStrategy) {
-                    return;
-                }
+            // do not hide the overlay if it's attached to a row
+            if (this.rowEditingOverlay.overlayId === event.id) {
+                return;
+            }
 
+            if (overlaySettings?.outlet === this.outlet && this.overlayIDs.indexOf(event.id) === -1) {
                 this.overlayIDs.push(event.id);
             }
         });
